@@ -1,3 +1,5 @@
+import { Login } from "iconsax-react";
+
 function LoginPage() {
   return (
     <section className="flex h-screen bg-purple-100">
@@ -6,7 +8,7 @@ function LoginPage() {
           <div className="mt-6">
             <img
               className="mx-auto w-16"
-              src="../public/logo_login.png"
+              src="../public/images/logo_login.png"
               alt="logo"
             />
           </div>
@@ -25,30 +27,8 @@ function LoginPage() {
                 placeholder="Password"
               />
               <button className="mt-5 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 text-white w-full py-3 rounded-lg flex items-center justify-center focus:shadow-outline focus:outline-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    stroke="#ffffff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    stroke-width="1.5"
-                    d="M11.68 14.62l2.56-2.56-2.56-2.56M4 12.06h10.17"
-                  ></path>
-                  <path
-                    stroke="#ffffff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    stroke-width="1.5"
-                    d="M12 4c4.42 0 8 3 8 8s-3.58 8-8 8"
-                  ></path>
-                </svg>
+                <Login size="25" color="#fff" />
+
                 <span className="ml-1">Login</span>
               </button>
 
