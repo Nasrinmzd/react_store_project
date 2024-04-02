@@ -1,4 +1,4 @@
-import { Login } from "iconsax-react";
+import { Login, Sun1 } from "iconsax-react";
 
 function LoginPage() {
   return (
@@ -6,11 +6,7 @@ function LoginPage() {
       <div className="m-auto w-3/5 sm:h-screen md:h-3/4 bg-white rounded-xl flex flex-col-reverse sm:flex-col md:flex-row justify-between truncate ">
         <div className="flex flex-col flex-1 items-center bg-white m-2">
           <div className="mt-6">
-            <img
-              className="mx-auto w-16"
-              src="../public/images/logo_login.png"
-              alt="logo"
-            />
+          <Sun1 size="75" color="#4f46e5" variant="Bold" />
           </div>
 
           <form>
@@ -28,7 +24,6 @@ function LoginPage() {
               />
               <button className="mt-5 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 text-white w-full py-3 rounded-lg flex items-center justify-center focus:shadow-outline focus:outline-none">
                 <Login size="25" color="#fff" />
-
                 <span className="ml-1">Login</span>
               </button>
 
