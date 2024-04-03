@@ -1,26 +1,32 @@
 import { Login, Sun1 } from "iconsax-react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
+import instance from "../service/axiosInterceptor";
+
+
 
 function LoginPage() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues:{
+      username: 'kminchelle',
+    password: '0lelplR',
+    }
+  });
   const [cookies, setCookie] = useCookies(['authToken'])
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post(
-        "https://dummyjson.com/auth/login",
+      const response = await instance.post(
+        'auth/login',
         data
       );
-      const { token } = response.data;
+      const { token } = response;
 
       setCookie('authToken', token, {path: "/", expiresInMins: 30});
       toast.success('Login successful:)')
 
     } catch (error) {
-
       toast.error('Login failed:(')
     }
   }
@@ -38,10 +44,10 @@ function LoginPage() {
             <div className="flex flex-col mx-auto max-w-xs">
               <input
                 className="w-full px-16 pl-3 py-3 rounded-lg border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                type="email"
-                placeholder="Email Address"
-                id="email"
-                {...register("email")}
+                type="text"
+                placeholder="Username"
+                id="username"
+                {...register("username")}
               />
               <input
                 className="w-full px-16 pl-3 py-3 rounded-lg  border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
