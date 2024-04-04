@@ -1,35 +1,19 @@
 import { Login, Sun1 } from "iconsax-react";
 import { useForm } from "react-hook-form";
+import { onSubmit } from "../service/authentication/onSubmit";
 import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
-import instance from "../service/axiosInterceptor";
-
-
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
-    defaultValues:{
-      username: 'kminchelle',
-    password: '0lelplR',
-    }
+    defaultValues: {
+      username: "kminchelle",
+      password: "0lelplR",
+    },
   });
-  const [cookies, setCookie] = useCookies(['authToken'])
 
-  async function onSubmit(data) {
-    try {
-      const response = await instance.post(
-        'auth/login',
-        data
-      );
-      const { token } = response;
-
-      setCookie('authToken', token, {path: "/", expiresInMins: 30});
-      toast.success('Login successful:)')
-
-    } catch (error) {
-      toast.error('Login failed:(')
-    }
-  }
+  const [cookies, setCookie] = useCookies(["authToken"]);
 
   return (
     <section className="flex h-screen bg-purple-100">
@@ -39,7 +23,11 @@ function LoginPage() {
             <Sun1 size="75" color="#4f46e5" variant="Bold" />
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form
+            onSubmit={handleSubmit((data) =>
+              onSubmit(data, setCookie, navigate)
+            )}
+          >
             <p className="mt-10 mb-5">Please Login to Your Account</p>
             <div className="flex flex-col mx-auto max-w-xs">
               <input
