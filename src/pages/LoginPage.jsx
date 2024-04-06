@@ -44,7 +44,7 @@ function LoginPage() {
                 id="password"
                 {...register("password")}
               />
-              <button className="mt-5 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 text-white w-full py-3 rounded-lg flex items-center justify-center focus:shadow-outline focus:outline-none">
+              <button className="mt-5 bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 text-white w-full py-3 rounded-lg flex items-center justify-center focus:shadow-outline focus:outline-none">
                 <Login size="25" color="#fff" />
                 <span className="ml-1">Sign in</span>
               </button>

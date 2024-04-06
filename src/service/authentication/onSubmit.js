@@ -8,12 +8,12 @@ export async function onSubmit(data, setCookie, navigate) {
     const { token } = response;
 
     setCookie("authToken", token, { path: "/", expiresInMins: 30 });
-    toast.success("Login successful:)");
+    toast.success("Sign in successful 😅");
 
     navigate('/')
 
   } catch (error) {
     console.log(error);
-    toast.error("Login failed:(");
+    toast.error("Login failed ☹️");
   }
 }
