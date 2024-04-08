@@ -14,7 +14,7 @@ function Homepage() {
           Welcome to Our Store!
         </h1>
       </header>
-      <main className="flex justify-center items-center">
+      <main className="flex justify-center items-center mt-2">
         <Sidebar />
         <ProductsList />
       </main>

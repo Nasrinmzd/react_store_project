@@ -1,9 +1,10 @@
+
 function Footer() {
-    return (
-        <header className="bg-gray-100 h-100">
-            MyHeader
-        </header>
-    )
+  return (
+    <footer className="bg-gray-100 h-100">
+      my header
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

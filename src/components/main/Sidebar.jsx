@@ -1,9 +1,7 @@
 function Sidebar() {
-    return (
-        <div className="bg-pink-300 w-1/5">
-            Sidebar
-        </div>
-    )
+  return (
+    <div>side</div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
