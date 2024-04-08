@@ -1,18 +1,15 @@
 import { useProducts } from "../../context/ProductContext";
-
-
-// import ProductItem from "./ProductItem";
+import ProductItem from "./ProductItem";
 
 function ProductsList() {
   const { products, isLoading } = useProducts();
-  console.log(products);
 
   if (isLoading) {
     return <div>loading...</div>;
   }
 
   return (
-    <div className="bg-red-600 w-4/5">
+    <div className="w-4/5 grid grid-cols-4 gap-2 place-items-center">
       {products.map((product) => (
           <ProductItem product={product} key={product.id} />
       ))}

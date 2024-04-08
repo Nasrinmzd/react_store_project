@@ -13,8 +13,7 @@ function ProductProvider({ children }) {
       try {
         setIsLoading(true);
         const res = await instance.get("/products")
-        console.log(res.data.products);
-        setProducts(res.data.products);
+        setProducts(res.products);
       } catch(error) {
         toast.error('There was an error loading data...')
       }finally {
@@ -23,6 +22,9 @@ function ProductProvider({ children }) {
     }
     fetchProducts();
   }, []);
+
+
+
 
   return (
     <ProductContext.Provider value={{products, isLoading}}>{children}</ProductContext.Provider>

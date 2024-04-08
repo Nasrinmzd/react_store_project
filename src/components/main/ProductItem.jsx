@@ -6,12 +6,12 @@ function ProductItem({ product }) {
   return (
     <Link>
       <div
-        className="w-full max-w-xs
+        className="max-w-xs
      bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
         <img
-          className="p-8 rounded-t-lg"
-          src={product.images}
+          className="p-3"
+          src={product.images[0]}
           alt={product.title}
         />
         <div className="flex flex-col gap-3 px-5 pb-5">

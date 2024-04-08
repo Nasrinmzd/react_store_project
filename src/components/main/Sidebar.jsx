@@ -1,6 +1,6 @@
 function Sidebar() {
   return (
-    <div>side</div>
+    <div className="w-1/5">side</div>
   );
 }
 
