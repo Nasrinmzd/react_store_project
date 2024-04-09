@@ -7,7 +7,7 @@ function ProductItem({ product }) {
     <Link>
       <div
         className="max-w-xs
-     bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+     bg-white border border-gray-200 rounded-lg shadow"
       >
         <img
           className="p-3"
@@ -15,12 +15,12 @@ function ProductItem({ product }) {
           alt={product.title}
         />
         <div className="flex flex-col gap-3 px-5 pb-5">
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h3 className="text-xl font-semibold tracking-tight text-gray-900">
             {product.title}
           </h3>
           <span className="text-xs">{product.brand}</span>
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
+            <span className="text-3xl font-bold text-gray-900">
               ${product.price}
             </span>
             <div className="flex items-center">

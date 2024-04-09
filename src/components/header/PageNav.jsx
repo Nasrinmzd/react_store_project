@@ -5,7 +5,7 @@ import { SearchNormal1, ShoppingCart } from "iconsax-react";
 
 function PageNav() {
   return (
-    <nav className="flex justify-between items-center py-5 px-6">
+    <nav className="w-full text-white flex justify-between items-center py-5 px-6 fixed bg-transparent ">
       <Logo />
       <ul className="flex gap-5 font-bold">
         <li>
