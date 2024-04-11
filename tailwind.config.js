@@ -8,6 +8,9 @@ export default {
     height:{
       "100": "44rem"
     },
+    maxHeight: {
+      "100": "63.5rem"
+    },
     fontFamily:{
       "petit": ['Petit Formal Script', 'san-serif']
     },

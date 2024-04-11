@@ -1,4 +1,4 @@
-import Sidebar from "../components/main/Sidebar";
+import CategoriesList from "../components/main/CategoriesList";
 import ProductsList from "../components/main/ProductsList";
 
 function Homepage() {
@@ -11,8 +11,8 @@ function Homepage() {
           Welcome to Our Store!
         </h1>
       </header>
-      <main className="flex justify-center items-center m-2">
-        <Sidebar />
+      <main className="flex m-2 h-full">
+        <CategoriesList />
         <ProductsList />
       </main>
 

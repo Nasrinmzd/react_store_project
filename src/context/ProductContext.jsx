@@ -6,6 +6,7 @@ const ProductContext = createContext();
 
 function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
@@ -25,9 +26,27 @@ function ProductProvider({ children }) {
 
 
 
+  useEffect(function () {
+    async function fetchProductCategores() {
+      try {
+        setIsLoading(true);
+        const res = await instance.get("/products/categories")
+        setCategories(res);
+      } catch(error) {
+        toast.error('There was an error loading data...')
+      }finally {
+        setIsLoading(false);
+      }
+    }
+    fetchProductCategores();
+  }, []);
+
+
+
+
 
   return (
-    <ProductContext.Provider value={{products, isLoading}}>{children}</ProductContext.Provider>
+    <ProductContext.Provider value={{products, isLoading, categories}}>{children}</ProductContext.Provider>
   );
 }
 

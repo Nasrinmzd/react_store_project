@@ -7,13 +7,15 @@ function ProductItem({ product }) {
     <Link>
       <div
         className="max-w-xs
-     bg-white border border-gray-200 rounded-lg shadow"
+     bg-white border border-gray-200 rounded-lg shadow h-full"
       >
+        <div className="w-40 h-40">
         <img
-          className="p-3"
+          className="object-cover p-3"
           src={product.images[0]}
           alt={product.title}
         />
+        </div>
         <div className="flex flex-col gap-3 px-5 pb-5">
           <h3 className="text-xl font-semibold tracking-tight text-gray-900">
             {product.title}
