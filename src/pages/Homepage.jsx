@@ -11,7 +11,7 @@ function Homepage() {
           Welcome to Our Store!
         </h1>
       </header>
-      <main className="flex m-2 h-full">
+      <main className="flex justify-around m-2 h-full">
         <CategoriesList />
         <ProductsList />
       </main>

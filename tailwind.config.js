@@ -6,10 +6,14 @@ export default {
   ],
   theme: {
     height:{
-      "100": "44rem"
+      "100": "44rem",
+      "101": "14rem"
     },
     maxHeight: {
       "100": "63.5rem"
+    },
+    width:{
+      "101": "14rem"
     },
     fontFamily:{
       "petit": ['Petit Formal Script', 'san-serif']

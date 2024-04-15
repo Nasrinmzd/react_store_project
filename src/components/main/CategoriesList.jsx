@@ -9,7 +9,7 @@ function CategoriesList() {
   }
 
   return (
-    <div className="w-1/5 mx-3 border-gray-200 rounded-lg shadow max-h-100">
+    <div className="w-1/5 border-gray-200 rounded-lg shadow max-h-100">
       <h3 className="p-2 font-bold text-xl">Categories</h3>
       <ul className="flex flex-col gap-2">
         {categories.map((category, index) => (

@@ -9,39 +9,35 @@ function ProductProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(function () {
-    async function fetchProducts() {
-      try {
-        setIsLoading(true);
-        const res = await instance.get("/products")
-        setProducts(res.products);
-      } catch(error) {
-        toast.error('There was an error loading data...')
-      }finally {
-        setIsLoading(false);
-      }
-    }
+  useEffect(() => {
     fetchProducts();
-  }, []);
-
-
-
-  useEffect(function () {
-    async function fetchProductCategores() {
-      try {
-        setIsLoading(true);
-        const res = await instance.get("/products/categories")
-        setCategories(res);
-      } catch(error) {
-        toast.error('There was an error loading data...')
-      }finally {
-        setIsLoading(false);
-      }
-    }
     fetchProductCategores();
+
   }, []);
 
+  async function fetchProducts() {
+    try {
+      setIsLoading(true);
+      const res = await instance.get("/products")
+      setProducts(res.products);
+    } catch(error) {
+      toast.error('There was an error loading data...')
+    }finally {
+      setIsLoading(false);
+    }
+  }
 
+  async function fetchProductCategores() {
+    try {
+      setIsLoading(true);
+      const res = await instance.get("/products/categories")
+      setCategories(res);
+    } catch(error) {
+      toast.error('There was an error loading data...')
+    }finally {
+      setIsLoading(false);
+    }
+  }
 
 
 
