@@ -13,12 +13,10 @@ function CategoriesItem({ category }) {
 
 
   return (
-    <Link to="#" onClick={handleClick}>
-      <li className="p-2 capitalize flex items-center border-b">
+      <li className="p-2 capitalize flex items-center border-b" onClick={handleClick}>
         <span className="mr-2">{category}</span>
         <ArrowRight size="18" color="#000000" />
       </li>
-    </Link>
   );
 }
 

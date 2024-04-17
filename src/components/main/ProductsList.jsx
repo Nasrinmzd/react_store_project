@@ -7,7 +7,10 @@ function ProductsList() {
   const { products, isLoading } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || "";
+  const category = searchParams.get("category");
+  
+    // console.log(category)
+
 
   useEffect(() => {
     const filter = category
@@ -17,11 +20,11 @@ function ProductsList() {
       setFilteredProducts(filter)
   }, [category, products]);
 
+
   if (isLoading) {
     return <div>loading</div>;
   }
 
-  // console.log(filteredProducts);
 
   return (
     <div className="w-4/5 grid grid-cols-4 gap-4">
