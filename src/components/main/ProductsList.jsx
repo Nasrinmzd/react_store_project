@@ -9,8 +9,6 @@ function ProductsList() {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   
-    // console.log(category)
-
 
   useEffect(() => {
     const filter = category
@@ -27,7 +25,7 @@ function ProductsList() {
 
 
   return (
-    <div className="w-4/5 grid grid-cols-4 gap-4">
+    <div className="w-4/5 grid grid-cols-4 gap-4 mx-3">
       {filteredProducts.map((product) => (
         <div key={product.id}>
           <ProductItem product={product} />

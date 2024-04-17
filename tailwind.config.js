@@ -10,7 +10,7 @@ export default {
       "101": "14rem"
     },
     maxHeight: {
-      "100": "63.5rem"
+      "100": "65.2rem"
     },
     width:{
       "101": "14rem"
