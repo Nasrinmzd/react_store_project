@@ -8,13 +8,11 @@ function ProductItem({ product }) {
         className="max-w-xs 
      bg-white border border-gray-200 rounded-lg shadow h-full"
       >
-        <div>
           <img
-            className="w-101 h-101 m-auto object-fit object-contain p-3"
+            className="w-101 h-101 m-auto object-fit object-contain p-3 "
             src={product.images[0]}
             alt={product.title}
           />
-        </div>
         <div className="flex flex-col gap-3 px-5 pb-5">
           <span className="text-sm font-extrabold tracking-tight capitalize text-gray-900">
             {product.title}

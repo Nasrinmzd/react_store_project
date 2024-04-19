@@ -3,20 +3,28 @@ import { useProducts } from "../../context/ProductContext";
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 
-function ProductsList() {
+function ProductsList({ searchTerm }) {
   const { products, isLoading } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   
+  console.log(products)
 
   useEffect(() => {
-    const filter = category
+    let filtered = category
       ? products.filter((product) => product.category?.toString() === category)
       : products;
 
-      setFilteredProducts(filter)
-  }, [category, products]);
+
+      if (searchTerm) {
+        filtered = filtered.filter((product) =>
+          product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+
+      setFilteredProducts(filtered)
+  }, [category, products, searchTerm]);
 
 
   if (isLoading) {

@@ -1,7 +1,8 @@
 import CategoriesList from "../components/main/CategoriesList";
 import ProductsList from "../components/main/ProductsList";
 
-function Homepage() {
+function Homepage({searchTerm}) {
+
   return (
     <div>
       <header className="container text-white py-2 px-6 bg-[url('../public/images/bg_image.jpg')] bg-center bg-cover h-100">
@@ -13,7 +14,7 @@ function Homepage() {
       </header>
       <main className="flex m-2 h-full">
         <CategoriesList />
-        <ProductsList />
+        <ProductsList searchTerm={searchTerm} />
       </main>
 
     </div>

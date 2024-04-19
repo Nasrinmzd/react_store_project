@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import Button from "../Button";
-import { SearchNormal1, ShoppingCart } from "iconsax-react";
+import { ShoppingCart } from "iconsax-react";
+import Search from "./Search";
 
-function PageNav() {
+function PageNav({searchTerm, setSearchTerm}) {
   return (
     <nav className="w-full text-white flex justify-between items-center py-5 px-6 bg-black ">
       <Logo />
@@ -22,10 +23,7 @@ function PageNav() {
         <div>
           <ShoppingCart size="34" color="#ffffff" />
         </div>
-        <div className="flex items-center bg-white p-2 rounded">
-          <SearchNormal1 size="18" color="#000" />
-          <input className="ml-2 outline-none text-black" type="Search" placeholder="Search..." />
-        </div>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Button>
           <NavLink to="/login">Login</NavLink>
         </Button>

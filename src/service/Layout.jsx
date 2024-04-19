@@ -3,10 +3,11 @@ import PageNav from "../components/header/PageNav"
 import {Outlet} from "react-router-dom"
 
 
-function Layout() {
+function Layout({searchTerm, setSearchTerm}) {
+
     return (
         <div>
-            <PageNav />
+            <PageNav searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Outlet />
             <Footer />
         </div>

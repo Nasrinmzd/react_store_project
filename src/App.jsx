@@ -7,16 +7,19 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { ProductProvider } from "./context/ProductContext";
 import Layout from "./service/Layout";
+import { useState } from "react";
 
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   return (
     <ProductProvider>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Homepage />} />
+          <Route element={<Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}>
+            <Route path="/" element={<Homepage searchTerm={searchTerm} />} />
             <Route path="/products" element={<AllProducts />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
