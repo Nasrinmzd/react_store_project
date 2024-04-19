@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useProducts } from "../../context/ProductContext";
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 function ProductsList({ searchTerm }) {
   const { products, isLoading } = useProducts();
@@ -9,8 +10,6 @@ function ProductsList({ searchTerm }) {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   
-  console.log(products)
-
   useEffect(() => {
     let filtered = category
       ? products.filter((product) => product.category?.toString() === category)
@@ -27,9 +26,7 @@ function ProductsList({ searchTerm }) {
   }, [category, products, searchTerm]);
 
 
-  if (isLoading) {
-    return <div>loading</div>;
-  }
+  if (isLoading) return <Loader />
 
 
   return (

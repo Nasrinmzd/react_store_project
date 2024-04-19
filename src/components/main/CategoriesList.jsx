@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../context/ProductContext";
 import CategoriesItem from "./CategoriesItem";
+import Loader from "../Loader";
 
 function CategoriesList() {
   const { categories, isLoading } = useProducts();
@@ -11,9 +12,7 @@ function CategoriesList() {
 
   }
 
-  if (isLoading) {
-    return <div>loading</div>;
-  }
+  if (isLoading) return <Loader />
 
 
   return (
