@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ProductItem({ product }) {
   return (
-    <Link>
+    <Link to={`/products/${product.id}`}>
       <div
         className="max-w-xs 
      bg-white border border-gray-200 rounded-lg shadow h-full"
