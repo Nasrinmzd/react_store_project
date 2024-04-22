@@ -42,7 +42,7 @@ function ProductDetail() {
             </div>
               <button
                 type="button"
-                className="min-w-[450px] px-4 py-2.5 mt-14 border border-indigo-600 bg-transparent text-indigo-400 hover:text-white hover:bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600  text-sm font-bold rounded transition-all"
+                className="min-w-full px-4 py-2.5 mt-14 border border-indigo-600 bg-transparent text-indigo-400 hover:text-white hover:bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600  text-sm font-bold rounded transition-all"
               >
                 Add to cart
               </button>

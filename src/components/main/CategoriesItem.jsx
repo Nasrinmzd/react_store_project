@@ -1,4 +1,3 @@
-import { ArrowRight } from "iconsax-react";
 import { useSearchParams } from "react-router-dom";
 
 function CategoriesItem({ category }) {
@@ -11,11 +10,10 @@ function CategoriesItem({ category }) {
 
   return (
     <li
-      className="p-2 capitalize flex items-center border-b cursor-pointer"
+      className="p-2 capitalize flex items-center border-b cursor-pointer hover:bg-indigo-50"
       onClick={handleClick}
     >
       <span className="mr-2">{category}</span>
-      <ArrowRight size="18" color="#000000" />
     </li>
   );
 }

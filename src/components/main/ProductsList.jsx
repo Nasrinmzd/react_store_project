@@ -30,7 +30,7 @@ function ProductsList({ searchTerm }) {
 
 
   return (
-    <div className="w-3/4 grid grid-cols-4 gap-4 mx-3">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3">
       {filteredProducts.map((product) => (
         <div key={product.id}>
           <ProductItem product={product} />

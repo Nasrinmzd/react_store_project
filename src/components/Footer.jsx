@@ -4,22 +4,22 @@ import Logo from "./header/Logo";
 
 function Footer() {
   return (
-      <footer class="w-full bg-black">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-12 gap-8 py-14 lg:grid-cols-8">
-            <div class="mb-0 col-span-full lg:col-span-3 text-white ">
+      <footer className="w-full bg-black">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-12 gap-8 py-14 lg:grid-cols-8">
+            <div className="mb-0 col-span-full lg:col-span-3 text-white ">
               <Logo />
-              <p class="py-8  text-white lg:max-w-xs text-center lg:text-left">
+              <p className="py-8  text-white lg:max-w-xs text-center lg:text-left">
                 Trusted in more than 100 countries & 5 million customers. Follow
                 us on social media.
               </p>
-              <div class="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
+              <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
                 <a
                   href="javascript:;"
-                  class="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#33CCFF] hover:bg-gray-900"
+                  className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#33CCFF] hover:bg-gray-900"
                 >
                   <svg
-                    class="text-white"
+                    className="text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
@@ -37,11 +37,11 @@ function Footer() {
                 </a>
                 <a
                   href="javascript:;"
-                  class="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[linear-gradient(45deg,#FEE411_6.9%,#FEDB16_10.98%,#FEC125_17.77%,#FE983D_26.42%,#FE5F5E_36.5%,#FE2181_46.24%,#9000DC_85.57%)]  hover:bg-gradient-to-b from-gray-900 to-gray-900  
+                  className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[linear-gradient(45deg,#FEE411_6.9%,#FEDB16_10.98%,#FEC125_17.77%,#FE983D_26.42%,#FE5F5E_36.5%,#FE2181_46.24%,#9000DC_85.57%)]  hover:bg-gradient-to-b from-gray-900 to-gray-900  
                     "
                 >
                   <svg
-                    class="w-[1.25rem] h-[1.125rem] text-white"
+                    className="w-[1.25rem] h-[1.125rem] text-white"
                     viewBox="0 0 16 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,10 +54,10 @@ function Footer() {
                 </a>
                 <a
                   href="javascript:;"
-                  class="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#337FFF]  hover:bg-gray-900 "
+                  className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#337FFF]  hover:bg-gray-900 "
                 >
                   <svg
-                    class="w-[1rem] h-[1rem] text-white"
+                    className="w-[1rem] h-[1rem] text-white"
                     viewBox="0 0 8 14"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,10 +70,10 @@ function Footer() {
                 </a>
                 <a
                   href="javascript:;"
-                  class="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-gray-900 "
+                  className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-gray-900 "
                 >
                   <svg
-                    class="w-[1.25rem] h-[0.875rem] text-white"
+                    className="w-[1.25rem] h-[0.875rem] text-white"
                     viewBox="0 0 16 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,74 +88,74 @@ function Footer() {
                 </a>
               </div>
             </div>
-            <div class="w-full text-center lg:w-auto lg:text-left col-span-full sm:col-span-4 md:col-span-4 lg:col-span-2 ">
-              <h4 class="text-lg text-indigo-500 font-medium mb-7">
+            <div className="w-full text-center lg:w-auto lg:text-left col-span-full sm:col-span-4 md:col-span-4 lg:col-span-2 ">
+              <h4 className="text-lg text-indigo-500 font-medium mb-7">
                 Get In Touch
               </h4>
-              <ul class="text-white  transition-all duration-500">
-                <li class="mb-6">support@sun.com</li>
-                <li class="mb-6">+98 914 111 0000</li>
+              <ul className="text-white  transition-all duration-500">
+                <li className="mb-6">support@sun.com</li>
+                <li className="mb-6">+98 914 111 0000</li>
                 <li>1-A, ... Street, Tabriz, Iran.</li>
               </ul>
             </div>
-            <div class="w-full text-center lg:w-auto lg:text-left col-span-full sm:order-last sm:col-span-4 md:col-span-4 lg:order-none lg:col-span-1">
-              <h4 class="text-lg text-indigo-500 font-medium mb-7">Products</h4>
-              <ul class="text-white transition-all duration-500  ">
-                <li class="mb-6">
-                  <Link to="/" href="javascript:;" class="text-white">
+            <div className="w-full text-center lg:w-auto lg:text-left col-span-full sm:order-last sm:col-span-4 md:col-span-4 lg:order-none lg:col-span-1">
+              <h4 className="text-lg text-indigo-500 font-medium mb-7">Products</h4>
+              <ul className="text-white transition-all duration-500  ">
+                <li className="mb-6">
+                  <Link to="/" href="javascript:;" className="text-white">
                     Home
                   </Link>
                 </li>
-                <li class="mb-6">
-                  <Link to="/products" href="javascript:;" class=" text-white">
+                <li className="mb-6">
+                  <Link to="/products" href="javascript:;" className=" text-white">
                     Products
                   </Link>
                 </li>
-                <li class="mb-6">
-                  <Link to="/contact" href="javascript:;" class=" text-white">
+                <li className="mb-6">
+                  <Link to="/contact" href="javascript:;" className=" text-white">
                     Contact
                   </Link>
                 </li>
-                <li class="sm:mb-6">
-                  <Link to="/about" href="javascript:;" class=" text-white">
+                <li className="sm:mb-6">
+                  <Link to="/about" href="javascript:;" className=" text-white">
                     About
                   </Link>
                 </li>
               </ul>
             </div>
-            <div class="w-full text-center lg:w-auto lg:text-left col-span-full sm:col-span-4 md:col-span-4 lg:col-span-2 ">
-              <h4 class="text-lg text-center text-indigo-500 font-medium mb-7 lg:text-left">
+            <div className="w-full text-center lg:w-auto lg:text-left col-span-full sm:col-span-4 md:col-span-4 lg:col-span-2 ">
+              <h4 className="text-lg text-center text-indigo-500 font-medium mb-7 lg:text-left">
                 Newsletter
               </h4>
-              <div class="flex items-center lg:items-start">
+              <div>
                 <input
                   type="text"
-                  class="w-full h-12 mr-2 border border-gray-300 rounded py-2 px-5 shadow-sm text-gray-800 mb-5 text-center lg:text-left placeholder:text-gray-400 focus:outline-none focus:border-gray-500"
+                  className="w-full h-12 mr-2 border border-gray-300 rounded py-2 px-5 shadow-sm text-gray-800 mb-5 text-center lg:text-left placeholder:text-gray-400 focus:outline-none focus:border-gray-500"
                   placeholder="Your email here.."
                 />
                 <Button>Subscribe</Button>
               </div>
             </div>
           </div>
-          <div class="py-7 border-t border-gray-200">
-            <div class="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-              <span class="text-sm text-gray-500 ">
+          <div className="py-7 border-t border-gray-200">
+            <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
+              <span className="text-sm text-gray-500 ">
                 ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
                 reserved.
               </span>
-              <ul class="flex items-center gap-9 mt-4 lg:mt-0">
+              <ul className="flex items-center gap-9 mt-4 lg:mt-0">
                 <li>
-                  <a href="javascript:;" class="text-sm text-gray-500">
+                  <a href="javascript:;" className="text-sm text-gray-500">
                     Terms
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" class="text-sm text-gray-500">
+                  <a href="javascript:;" className="text-sm text-gray-500">
                     Privacy
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" class="text-sm text-gray-500">
+                  <a href="javascript:;" className="text-sm text-gray-500">
                     Cookies
                   </a>
                 </li>

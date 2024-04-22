@@ -9,25 +9,29 @@ import { ProductProvider } from "./context/ProductContext";
 import Layout from "./service/Layout";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
-
+import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-
 
   return (
     <ProductProvider>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}>
+          <Route
+            element={
+              <Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            }
+          >
             <Route path="/" element={<Homepage searchTerm={searchTerm} />} />
             <Route path="/products" element={<AllProducts />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<LoginPage replace />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
+          <Route path="/login" element={<LoginPage replace />} />
+          <Route path="/shopping" element={<ShoppingCart />} />
         </Routes>
       </BrowserRouter>
     </ProductProvider>
