@@ -1,7 +1,9 @@
 import CategoriesList from "../components/main/CategoriesList";
 import ProductsList from "../components/main/ProductsList";
 
+
 function Homepage({ searchTerm }) {
+ 
   return (
     <div>
       <header className="w-full text-white py-2 px-6 bg-[url('../public/images/bg_image.jpg')] bg-center bg-cover h-100">

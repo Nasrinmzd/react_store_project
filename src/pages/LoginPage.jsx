@@ -16,8 +16,8 @@ function LoginPage() {
   const [cookies, setCookie] = useCookies(["authToken"]);
 
   return (
-    <section className="flex h-screen bg-purple-100">
-      <div className="m-auto w-3/5 sm:h-screen md:h-3/4 bg-white rounded-xl flex flex-col-reverse sm:flex-col md:flex-row justify-between truncate ">
+    <section className="flex items-center justify-center min-h-screen bg-purple-100">
+      <div className="m-auto max-w-4xl sm:h-screen md:h-3/4 bg-white rounded-xl flex flex-col-reverse sm:flex-col md:flex-row justify-between truncate ">
         <div className="flex flex-col flex-1 items-center bg-white m-2">
           <div className="mt-6">
             <Sun1 size="75" color="#4f46e5" variant="Bold" />
