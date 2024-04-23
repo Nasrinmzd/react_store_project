@@ -18,6 +18,10 @@ export default {
       "101": "14rem",
       "102": "23rem"
     },
+    maxWidth:{
+      "105": "60%",
+      "106": "40%",
+    },
     fontFamily:{
       "petit": ['Petit Formal Script', 'san-serif']
     },

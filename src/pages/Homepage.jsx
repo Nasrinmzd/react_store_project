@@ -14,7 +14,7 @@ function Homepage({ searchTerm }) {
         </h1>
       </header>
       <main className="flex flex-col md:flex-row m-2 h-full">
-        <div className="md:w-2/5 lg:w-1/5">
+        <div className="w-101">
           <CategoriesList />
         </div>
         <div className="md:w-3/5 lg:w-4/5 sm:mt-2 m-auto">
