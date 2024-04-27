@@ -15,7 +15,7 @@ function Footer() {
               </p>
               <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
                 <a
-                  href="javascript:;"
+                  href="#"
                   className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#33CCFF] hover:bg-gray-900"
                 >
                   <svg
@@ -36,7 +36,7 @@ function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="javascript:;"
+                  href="#"
                   className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[linear-gradient(45deg,#FEE411_6.9%,#FEDB16_10.98%,#FEC125_17.77%,#FE983D_26.42%,#FE5F5E_36.5%,#FE2181_46.24%,#9000DC_85.57%)]  hover:bg-gradient-to-b from-gray-900 to-gray-900  
                     "
                 >
@@ -53,7 +53,7 @@ function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="javascript:;"
+                  href="#"
                   className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#337FFF]  hover:bg-gray-900 "
                 >
                   <svg
@@ -69,7 +69,7 @@ function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="javascript:;"
+                  href="#"
                   className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-gray-900 "
                 >
                   <svg
@@ -102,17 +102,17 @@ function Footer() {
               <h4 className="text-lg text-indigo-500 font-medium mb-7">Products</h4>
               <ul className="text-white transition-all duration-500  ">
                 <li className="mb-6">
-                  <Link to="/" href="javascript:;" className="text-white">
+                  <Link to="/" className="text-white">
                     Home
                   </Link>
                 </li>
                 <li className="mb-6">
-                  <Link to="/products" href="javascript:;" className=" text-white">
+                  <Link to="/products" className=" text-white">
                     Products
                   </Link>
                 </li>
                 <li className="mb-6">
-                  <Link to="/contact" href="javascript:;" className=" text-white">
+                  <Link to="/contact" className=" text-white">
                     Contact
                   </Link>
                 </li>
@@ -127,7 +127,7 @@ function Footer() {
               <h4 className="text-lg text-center text-indigo-500 font-medium mb-7 lg:text-left">
                 Newsletter
               </h4>
-              <div>
+              <div className="text-white">
                 <input
                   type="text"
                   className="w-full h-12 mr-2 border border-gray-300 rounded py-2 px-5 shadow-sm text-gray-800 mb-5 text-center lg:text-left placeholder:text-gray-400 focus:outline-none focus:border-gray-500"
@@ -140,22 +140,21 @@ function Footer() {
           <div className="py-7 border-t border-gray-200">
             <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
               <span className="text-sm text-gray-500 ">
-                ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
-                reserved.
+                ©sun 2024, All rights reserved.
               </span>
               <ul className="flex items-center gap-9 mt-4 lg:mt-0">
                 <li>
-                  <a href="javascript:;" className="text-sm text-gray-500">
+                  <a href="#" className="text-sm text-gray-500">
                     Terms
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" className="text-sm text-gray-500">
+                  <a href="#" className="text-sm text-gray-500">
                     Privacy
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" className="text-sm text-gray-500">
+                  <a href="#" className="text-sm text-gray-500">
                     Cookies
                   </a>
                 </li>

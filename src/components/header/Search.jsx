@@ -6,7 +6,7 @@ function Search({ searchTerm, setSearchTerm }) {
   };
 
   return (
-      <div className="flex items-center bg-white p-2 rounded">
+      <div className="flex items-center bg-white p-2 rounded border">
         <SearchNormal1 size="18" color="#000" />
         <input
           className="ml-2 outline-none text-black max-w-36 lg:max-w-80"

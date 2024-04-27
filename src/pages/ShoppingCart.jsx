@@ -188,6 +188,8 @@ function ShoppingCart() {
           </div>
         </div>
       </div>
+
+      
     </section>
   );
 }

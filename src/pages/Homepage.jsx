@@ -17,7 +17,7 @@ function Homepage({ searchTerm }) {
         <div className="w-101">
           <CategoriesList />
         </div>
-        <div className="md:w-3/5 lg:w-4/5 sm:mt-2 m-auto">
+        <div className="w-103 md:w-3/5 lg:w-4/5 sm:mt-2 m-auto">
           <ProductsList searchTerm={searchTerm} />
         </div>
       </main>
