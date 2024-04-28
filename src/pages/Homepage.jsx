@@ -1,7 +1,5 @@
-import CategoriesList from "../components/main/CategoriesList";
-import ProductsList from "../components/main/ProductsList";
 
-function Homepage({ searchTerm }) {
+function Homepage() {
   return (
     <div>
       <header className="w-full text-white py-2 px-6 bg-[url('../public/images/bg_image.jpg')] bg-center bg-cover h-[42rem]">
@@ -11,14 +9,7 @@ function Homepage({ searchTerm }) {
           Welcome to Our Store!
         </h1>
       </header>
-      <main className="flex flex-col md:flex-row m-2 h-full">
-        <div className="w-[14rem]">
-          <CategoriesList />
-        </div>
-        <div className="w-[100%] md:w-3/5 lg:w-4/5 sm:mt-2 m-auto">
-          <ProductsList searchTerm={searchTerm} />
-        </div>
-      </main>
+      
     </div>
   );
 }

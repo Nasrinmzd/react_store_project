@@ -22,7 +22,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
         {/* navLinks */}
         <div className="hidden md:block">
           <div className="flex items-center justify-center">
-            <ul className="flex gap-5 font-bold md:mr-8 lg:mr-64">
+            <ul className="flex gap-2 lg:gap-5 font-bold sm:mr-0 md:mr-2 lg:mr-40">
               <li>
                 <NavLink to="/products">All Products</NavLink>
               </li>
@@ -67,7 +67,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
       {/* mobile-menu */}
       {isMenuOpen ? (
         <div className="md:hidden" onClick={handleClose}>
-          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-2/4">
+          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-[35%]">
             <CloseSquare onClick={handleClose} className="mb-10" size="25" color="#000" />
             <ul className="flex flex-col text-gray-950 items-center gap-10 font-bold">
               <li>

@@ -15,7 +15,7 @@ function CategoriesList() {
   };
 
   const handleAllProducts = () => {
-    navigate("/");
+    navigate("/products");
   };
 
   const handleClose = () => {

@@ -24,7 +24,7 @@ function App() {
             }
           >
             <Route path="/" element={<Homepage searchTerm={searchTerm} />} />
-            <Route path="/products" element={<AllProducts />} />
+            <Route path="/products" element={<AllProducts searchTerm={searchTerm} />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
