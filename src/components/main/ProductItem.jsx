@@ -20,7 +20,7 @@ function ProductItem({ product }) {
   }, [product.id]);
 
   return (
-    <Link to={`/products/${product.id}`} className="max-w-[320px]">
+    <Link to={`/products/${product.id}`} className="max-w-[320px] mx-auto">
       <div
         className="
      bg-white border border-gray-200 rounded-lg shadow h-full"
