@@ -20,13 +20,13 @@ function ProductItem({ product }) {
   }, [product.id]);
 
   return (
-    <Link to={`/products/${product.id}`}>
+    <Link to={`/products/${product.id}`} className="max-w-[320px]">
       <div
-        className="max-w-xs 
+        className="
      bg-white border border-gray-200 rounded-lg shadow h-full"
       >
         <img
-          className="w-101 h-101 m-auto object-fit object-contain p-3 "
+          className="w-[320px] h-[250px] m-auto object-contain p-3"
           src={product.images[0]}
           alt={product.title}
         />

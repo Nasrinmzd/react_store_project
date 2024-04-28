@@ -1,9 +1,11 @@
 import { SearchNormal1 } from "iconsax-react";
 
 function Search({ searchTerm, setSearchTerm }) {
+
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+
 
   return (
       <div className="flex items-center bg-white p-2 rounded border">

@@ -11,6 +11,9 @@ function PageNav({ searchTerm, setSearchTerm }) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleClose = () =>{
+    setIsMenuOpen(false)
+  }
 
   return (
     <nav className="w-full text-white bg-black py-3 px-6">
@@ -38,7 +41,9 @@ function PageNav({ searchTerm, setSearchTerm }) {
               <Button>
                 <div className="flex items-center gap-1">
                   <User size="15" color="#fff" fon />
-                  <NavLink to="/login" className="font-bold">Login</NavLink>
+                  <NavLink to="/login" className="font-bold">
+                    Login
+                  </NavLink>
                 </div>
               </Button>
             </div>
@@ -61,9 +66,10 @@ function PageNav({ searchTerm, setSearchTerm }) {
       </div>
       {/* mobile-menu */}
       {isMenuOpen ? (
-        <div className="md:hidden">
-          <div className="flex flex-col items-center justify-center bg-white rounded p-5">
-            <ul className="flex flex-col text-gray-950 items-center gap-5 font-bold">
+        <div className="md:hidden" onClick={handleClose}>
+          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-2/4">
+            <CloseSquare onClick={handleClose} className="mb-10" size="25" color="#000" />
+            <ul className="flex flex-col text-gray-950 items-center gap-10 font-bold">
               <li>
                 <NavLink to="/products">All Products</NavLink>
               </li>
@@ -74,7 +80,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
             </ul>
-            <div className="flex flex-col justify-center gap-5 lg:gap-5 items-center mt-3">
+            <div className="flex flex-col justify-center gap-8 lg:gap-5 items-center mt-5">
               <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
               <div className="flex items-center">
                 <ShoppingCart className="mr-5" size="36" color="#000" />
