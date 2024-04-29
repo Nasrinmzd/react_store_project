@@ -67,7 +67,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
       {/* mobile-menu */}
       {isMenuOpen ? (
         <div className="md:hidden" onClick={handleClose}>
-          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-[35%]">
+          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-[35%] animate-pulse">
             <CloseSquare onClick={handleClose} className="mb-10" size="25" color="#000" />
             <ul className="flex flex-col text-gray-950 items-center gap-10 font-bold">
               <li>

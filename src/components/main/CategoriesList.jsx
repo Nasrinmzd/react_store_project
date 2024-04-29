@@ -46,7 +46,7 @@ function CategoriesList() {
       {/* filter button */}
       <div className="md:hidden">
         <button
-          className="flex items-center justify-center gap-1 m-2 border p-2 rounded-3xl"
+          className="flex items-center justify-center gap-1 m-2 ml-5 border p-2 rounded-3xl"
           onClick={toggleCategory}
           type="button"
         >
@@ -62,7 +62,7 @@ function CategoriesList() {
       </div>
       {isCategoryOpen && (
         <div className="md:hidden" onClick={handleClose}>
-          <div className="border-gray-300 rounded-lg shadow max-h-[65.2rem] bg-indigo-200/90 fixed inset-0 right-[55%]">
+          <div className="border-gray-300 rounded-lg shadow max-h-[65.2rem] bg-indigo-200/90 fixed inset-0 right-[55%] animate-pulse">
             <div className="flex justify-between items-center">
               <h3 className="p-2 font-bold text-xl">Categories</h3>
               <CloseSquare
