@@ -28,7 +28,7 @@ function CategoriesList() {
     <aside>
       {/* category System */}
       <div className="hidden md:block">
-        <div className="border-gray-200 rounded-lg shadow max-h-[65.2rem]">
+        <div className="border-gray-200 rounded-lg shadow">
           <h3 className="p-2 font-bold text-xl">Categories</h3>
           <ul className="flex flex-col gap-2">
             <span
@@ -62,7 +62,7 @@ function CategoriesList() {
       </div>
       {isCategoryOpen && (
         <div className="md:hidden" onClick={handleClose}>
-          <div className="border-gray-300 rounded-lg shadow max-h-[65.2rem] bg-indigo-200/90 fixed inset-0 right-[55%] animate-pulse">
+          <div className="border-gray-300 rounded-lg shadow bg-indigo-200/90 fixed inset-0 right-[55%]">
             <div className="flex justify-between items-center">
               <h3 className="p-2 font-bold text-xl">Categories</h3>
               <CloseSquare

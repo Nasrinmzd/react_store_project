@@ -39,8 +39,6 @@ function ProductProvider({ children }) {
     }
   }
 
-
-
   return (
     <ProductContext.Provider value={{products, isLoading, categories}}>{children}</ProductContext.Provider>
   );
