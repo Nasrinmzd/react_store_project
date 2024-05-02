@@ -3,7 +3,7 @@ import { useProducts } from "../../context/ProductContext";
 import CategoriesItem from "./CategoriesItem";
 import Loader from "../Loader";
 import { useState } from "react";
-import { CloseSquare, FilterRemove, FilterSearch } from "iconsax-react";
+import { FilterRemove, FilterSearch } from "iconsax-react";
 
 function CategoriesList() {
   const { categories, isLoading } = useProducts();
@@ -13,7 +13,6 @@ function CategoriesList() {
   const toggleCategory = () => {
     setIsCategoryOpen(!isCategoryOpen);
   };
-
   const handleAllProducts = () => {
     navigate("/products");
   };
@@ -23,12 +22,11 @@ function CategoriesList() {
   };
 
   if (isLoading) return <Loader />;
-
   return (
     <aside>
       {/* category System */}
-      <div className="hidden md:block">
-        <div className="border-gray-200 rounded-lg shadow">
+      <div onClick={handleClose} className= {`${isCategoryOpen ? "block md:block bg-indigo-200/90 fixed inset-0 right-[40%] transition ease-in-out duration-300" : "hidden md:block"}`}>
+        <div className="border-gray-200 rounded-lg shadow"              >
           <h3 className="p-2 font-bold text-xl">Categories</h3>
           <ul className="flex flex-col gap-2">
             <span
@@ -42,11 +40,11 @@ function CategoriesList() {
             ))}
           </ul>
         </div>
-      </div>
       {/* filter button */}
-      <div className="md:hidden">
+      </div>
+      <div className="md:hidden flex justify-center ml-36">
         <button
-          className="flex items-center justify-center gap-1 m-2 ml-5 border p-2 rounded-3xl"
+          className="flex items-center justify-center gap-1 m-2 ml-6 border p-2 rounded-xl"
           onClick={toggleCategory}
           type="button"
         >
@@ -60,32 +58,32 @@ function CategoriesList() {
           </span>
         </button>
       </div>
-      {isCategoryOpen && (
-        <div className="md:hidden" onClick={handleClose}>
-          <div className="border-gray-300 rounded-lg shadow bg-indigo-200/90 fixed inset-0 right-[55%]">
-            <div className="flex justify-between items-center">
-              <h3 className="p-2 font-bold text-xl">Categories</h3>
-              <CloseSquare
-                onClick={handleClose}
-                className="m-2"
-                size="25"
-                color="#000"
-              />
-            </div>
-            <ul className="flex flex-col gap-2">
-              <span
-                className="mx-2 border-b cursor-pointer"
-                onClick={handleAllProducts}
-              >
-                All Products
-              </span>
-              {categories.map((category, index) => (
-                <CategoriesItem category={category} key={index} />
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      {/* {isCategoryOpen && (
+        // <div className="md:hidden" onClick={handleClose}>
+        //   <div className="border-gray-300 rounded-lg shadow bg-indigo-200/90 fixed inset-0 right-[55%]">
+        //     <div className="flex justify-between items-center">
+        //       <h3 className="p-2 font-bold text-xl">Categories</h3>
+        //       <CloseSquare
+        //         onClick={handleClose}
+        //         className="m-2"
+        //         size="25"
+        //         color="#000"
+        //       />
+        //     </div>
+        //     <ul className="flex flex-col gap-2">
+        //       <span
+        //         className="mx-2 border-b cursor-pointer"
+        //         onClick={handleAllProducts}
+        //       >
+        //         All Products
+        //       </span>
+        //       {categories.map((category, index) => (
+        //         <CategoriesItem category={category} key={index} />
+        //       ))}
+        //     </ul>
+        //   </div>
+        // </div>
+      )} */}
     </aside>
   );
 }

@@ -30,7 +30,7 @@ function ProductsList({ searchTerm }) {
 
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap justify-center gap-3">
       {filteredProducts.map((product) => (
           <ProductItem product={product} />
       ))}
