@@ -4,6 +4,7 @@ import Button from "../Button";
 import { CloseSquare, HambergerMenu, ShoppingCart, User } from "iconsax-react";
 import Search from "./Search";
 import { useState } from "react";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 function PageNav({ searchTerm, setSearchTerm }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,9 +12,11 @@ function PageNav({ searchTerm, setSearchTerm }) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const handleClose = () =>{
-    setIsMenuOpen(false)
-  }
+  const handleClose = () => {
+    setIsMenuOpen(false);
+  };
+
+  const menuRef = useOutsideClick(handleClose);
 
   return (
     <nav className="w-full text-white bg-black py-3 px-6">
@@ -64,35 +67,46 @@ function PageNav({ searchTerm, setSearchTerm }) {
           </button>
         </div>
       </div>
-        <div className={`md:invisible fixed inset-0 left-[35%] transition-all ease-in-out duration-300 ${
-          isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
-        }`} onClick={handleClose}>
-          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
-            <CloseSquare onClick={handleClose} className="mb-10" size="25" color="#000" />
-            <ul className="flex flex-col text-gray-950 items-center gap-10 font-bold">
-              <li>
-                <NavLink to="/products">All Products</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">About</NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact">Contact</NavLink>
-              </li>
-            </ul>
-            <div className="flex flex-col justify-center gap-8 lg:gap-5 items-center mt-5">
-              <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-              <div className="flex items-center">
-                <ShoppingCart className="mr-5" size="36" color="#000" />
-                <Button>
-                  <NavLink to="/login" className="text-gray-950 font-bold">
-                    <User size="25" color="#000" />
-                  </NavLink>
-                </Button>
-              </div>
+      <div
+        ref={menuRef}
+        className={`md:invisible fixed inset-0 left-[35%] transition-all ease-in-out duration-300 ${
+          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
+          <CloseSquare
+            onClick={handleClose}
+            className="mb-10"
+            size="25"
+            color="#000"
+          />
+          <ul
+            onClick={handleClose}
+            className="flex flex-col text-gray-950 items-center gap-10 font-bold"
+          >
+            <li>
+              <NavLink to="/products">All Products</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+          </ul>
+          <div className="flex flex-col justify-center gap-8 lg:gap-5 items-center mt-5">
+            <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <div className="flex items-center">
+              <ShoppingCart className="mr-5" size="36" color="#000" />
+              <Button>
+                <NavLink to="/login" className="text-gray-950 font-bold">
+                  <User size="25" color="#000" />
+                </NavLink>
+              </Button>
             </div>
           </div>
         </div>
+      </div>
     </nav>
   );
 }

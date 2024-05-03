@@ -3,7 +3,8 @@ import { useProducts } from "../../context/ProductContext";
 import CategoriesItem from "./CategoriesItem";
 import Loader from "../Loader";
 import { useState } from "react";
-import { FilterRemove, FilterSearch } from "iconsax-react";
+import { CloseSquare, FilterRemove, FilterSearch } from "iconsax-react";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 function CategoriesList() {
   const { categories, isLoading } = useProducts();
@@ -21,20 +22,31 @@ function CategoriesList() {
     setIsCategoryOpen(false);
   };
 
+  const categoryRef = useOutsideClick(handleClose)
+
   if (isLoading) return <Loader />;
   return (
-    <aside>
+    <aside className="w-[15%]">
       {/* category System */}
       <div
+      ref={categoryRef}
         onClick={handleClose}
-        className={` bg-indigo-200/90 fixed inset-0 right-[40%] transition-all ease-in-out duration-300 ${
+        className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 ${
           isCategoryOpen
-            ? "visible opacity-100"
-            : "invisible opacity-0"
+            ? "left-0 top-0 bg-indigo-200/90"
+            : "sm:-left-full md:static opacity-0"
         }`}
       >
-        <div className="border-gray-200 rounded-lg shadow">
-          <h3 className="p-2 font-bold text-xl">Categories</h3>
+        <div className="border-gray-200 rounded-lg shadow w-[170px] lg:w-[210px]">
+          <div className="flex justify-between items-center">
+            <h3 className="p-2 font-bold text-xl">Categories</h3>
+            <CloseSquare
+              onClick={handleClose}
+              className="m-2 md:hidden"
+              size="25"
+              color="#000"
+            />
+          </div>
           <ul className="flex flex-col gap-2">
             <span
               className="mx-2 border-b cursor-pointer"
@@ -51,7 +63,7 @@ function CategoriesList() {
       </div>
       <div className="md:hidden flex justify-center ml-36">
         <button
-          className="flex items-center justify-center gap-1 m-2 ml-6 border p-2 rounded-xl"
+          className="flex items-center justify-center gap-1 m-2 ml-20 border-b-4 p-2 rounded-xl"
           onClick={toggleCategory}
           type="button"
         >
