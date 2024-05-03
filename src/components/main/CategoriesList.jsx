@@ -25,8 +25,15 @@ function CategoriesList() {
   return (
     <aside>
       {/* category System */}
-      <div onClick={handleClose} className= {`${isCategoryOpen ? "block md:block bg-indigo-200/90 fixed inset-0 right-[40%] transition ease-in-out duration-300" : "hidden md:block"}`}>
-        <div className="border-gray-200 rounded-lg shadow"              >
+      <div
+        onClick={handleClose}
+        className={` bg-indigo-200/90 fixed inset-0 right-[40%] transition-all ease-in-out duration-300 ${
+          isCategoryOpen
+            ? "visible opacity-100"
+            : "invisible opacity-0"
+        }`}
+      >
+        <div className="border-gray-200 rounded-lg shadow">
           <h3 className="p-2 font-bold text-xl">Categories</h3>
           <ul className="flex flex-col gap-2">
             <span
@@ -40,7 +47,7 @@ function CategoriesList() {
             ))}
           </ul>
         </div>
-      {/* filter button */}
+        {/* filter button */}
       </div>
       <div className="md:hidden flex justify-center ml-36">
         <button

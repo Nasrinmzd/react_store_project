@@ -64,10 +64,10 @@ function PageNav({ searchTerm, setSearchTerm }) {
           </button>
         </div>
       </div>
-      {/* mobile-menu */}
-      {isMenuOpen ? (
-        <div className="md:hidden" onClick={handleClose}>
-          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 fixed inset-0 left-[35%]">
+        <div className={`md:invisible fixed inset-0 left-[35%] transition-all ease-in-out duration-300 ${
+          isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        }`} onClick={handleClose}>
+          <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
             <CloseSquare onClick={handleClose} className="mb-10" size="25" color="#000" />
             <ul className="flex flex-col text-gray-950 items-center gap-10 font-bold">
               <li>
@@ -93,7 +93,6 @@ function PageNav({ searchTerm, setSearchTerm }) {
             </div>
           </div>
         </div>
-      ) : null}
     </nav>
   );
 }
