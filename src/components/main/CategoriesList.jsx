@@ -37,7 +37,7 @@ function CategoriesList() {
             : "sm:-left-full md:static opacity-0"
         }`}
       >
-        <div className="border-gray-200 rounded-lg shadow w-[170px] lg:w-[210px]">
+        <div className="border-gray-200 rounded-lg shadow w-[160px] lg:w-[190px]">
           <div className="flex justify-between items-center">
             <h3 className="p-2 font-bold text-xl">Categories</h3>
             <CloseSquare
@@ -77,32 +77,6 @@ function CategoriesList() {
           </span>
         </button>
       </div>
-      {/* {isCategoryOpen && (
-        // <div className="md:hidden" onClick={handleClose}>
-        //   <div className="border-gray-300 rounded-lg shadow bg-indigo-200/90 fixed inset-0 right-[55%]">
-        //     <div className="flex justify-between items-center">
-        //       <h3 className="p-2 font-bold text-xl">Categories</h3>
-        //       <CloseSquare
-        //         onClick={handleClose}
-        //         className="m-2"
-        //         size="25"
-        //         color="#000"
-        //       />
-        //     </div>
-        //     <ul className="flex flex-col gap-2">
-        //       <span
-        //         className="mx-2 border-b cursor-pointer"
-        //         onClick={handleAllProducts}
-        //       >
-        //         All Products
-        //       </span>
-        //       {categories.map((category, index) => (
-        //         <CategoriesItem category={category} key={index} />
-        //       ))}
-        //     </ul>
-        //   </div>
-        // </div>
-      )} */}
     </aside>
   );
 }

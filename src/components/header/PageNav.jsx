@@ -69,8 +69,10 @@ function PageNav({ searchTerm, setSearchTerm }) {
       </div>
       <div
         ref={menuRef}
-        className={`md:invisible fixed inset-0 left-[35%] transition-all ease-in-out duration-300 ${
-          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+        className={`fixed inset-y-0 right-0 transform transition-all duration-300 z-50 ${
+          isMenuOpen
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0"
         }`}
       >
         <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
