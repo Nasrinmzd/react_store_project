@@ -31,13 +31,13 @@ function CategoriesList() {
       <div
       ref={categoryRef}
         onClick={handleClose}
-        className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 ${
+        className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 z-50 ${
           isCategoryOpen
             ? "left-0 top-0 bg-indigo-200/90"
             : "sm:-left-full md:static opacity-0"
         }`}
       >
-        <div className="border-gray-200 rounded-lg shadow w-[160px] lg:w-[190px]">
+        <div className="border-gray-200 rounded-lg shadow w-[230px] lg:w-[190px]">
           <div className="flex justify-between items-center">
             <h3 className="p-2 font-bold text-xl">Categories</h3>
             <CloseSquare
@@ -77,6 +77,13 @@ function CategoriesList() {
           </span>
         </button>
       </div>
+
+      <div
+        className={`fixed inset-0  opacity-50 transition-opacity duration-300 md:hidden ${
+          isCategoryOpen ? "bg-black opacity-80" : "opacity-0 pointer-events-none"
+        }`}
+      ></div>
+
     </aside>
   );
 }

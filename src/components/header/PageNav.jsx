@@ -5,6 +5,7 @@ import { CloseSquare, HambergerMenu, ShoppingCart, User } from "iconsax-react";
 import Search from "./Search";
 import { useState } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import ShoppingCartPage from "../../pages/ShoppingCartPage";
 
 function PageNav({ searchTerm, setSearchTerm }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
               </li>
             </ul>
             <div className="flex justify-center gap-2 lg:gap-5 items-center">
-              <div>
+              <div onClick={<ShoppingCartPage />}>
                 <ShoppingCart size="34" color="#ffffff" />
               </div>
               <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
@@ -67,6 +68,7 @@ function PageNav({ searchTerm, setSearchTerm }) {
           </button>
         </div>
       </div>
+
       <div
         ref={menuRef}
         className={`fixed inset-y-0 right-0 transform transition-all duration-300 z-50 ${
@@ -75,16 +77,16 @@ function PageNav({ searchTerm, setSearchTerm }) {
             : "translate-x-full opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
-          <CloseSquare
-            onClick={handleClose}
-            className="mb-10"
-            size="25"
-            color="#000"
-          />
+        <CloseSquare
+          onClick={handleClose}
+          className="absolute top-2 left-2 z-40"
+          size="25"
+          color="#000"
+        />
+        <div className="flex flex-col bg-white/70 backdrop-blur-sm rounded p-5 h-[950px]">
           <ul
             onClick={handleClose}
-            className="flex flex-col text-gray-950 items-center gap-10 font-bold"
+            className="flex flex-col text-gray-950 items-center gap-10 font-bold mt-8"
           >
             <li>
               <NavLink to="/products">All Products</NavLink>
@@ -109,6 +111,11 @@ function PageNav({ searchTerm, setSearchTerm }) {
           </div>
         </div>
       </div>
+      <div
+        className={`fixed inset-0  opacity-50 z-40 transition-opacity duration-300 md:hidden ${
+          isMenuOpen ? "bg-black opacity-80" : "opacity-0 pointer-events-none"
+        }`}
+      ></div>
     </nav>
   );
 }

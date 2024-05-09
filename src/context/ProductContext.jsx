@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { instance } from "../service/config";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
 const ProductContext = createContext();
 
@@ -12,17 +12,16 @@ function ProductProvider({ children }) {
   useEffect(() => {
     fetchProducts();
     fetchProductCategores();
-
   }, []);
 
   async function fetchProducts() {
     try {
       setIsLoading(true);
-      const res = await instance.get("/products")
+      const res = await instance.get("/products");
       setProducts(res.products);
-    } catch(error) {
-      toast.error('There was an error loading data...')
-    }finally {
+    } catch (error) {
+      toast.error("There was an error loading data...");
+    } finally {
       setIsLoading(false);
     }
   }
@@ -30,25 +29,27 @@ function ProductProvider({ children }) {
   async function fetchProductCategores() {
     try {
       setIsLoading(true);
-      const res = await instance.get("/products/categories")
+      const res = await instance.get("/products/categories");
       setCategories(res);
-    } catch(error) {
-      toast.error('There was an error loading data...')
-    }finally {
+    } catch (error) {
+      toast.error("There was an error loading data...");
+    } finally {
       setIsLoading(false);
     }
   }
 
   return (
-    <ProductContext.Provider value={{products, isLoading, categories}}>{children}</ProductContext.Provider>
+    <ProductContext.Provider value={{ products, isLoading, categories }}>
+      {children}
+    </ProductContext.Provider>
   );
 }
 
-function useProducts(){
-    const context = useContext(ProductContext)
-    if(context === undefined) throw new Error("ProductContext was used outside the ProductProvider")
-    return context
+function useProducts() {
+  const context = useContext(ProductContext);
+  if (context === undefined)
+    throw new Error("ProductContext was used outside the ProductProvider");
+  return context;
 }
 
 export { ProductProvider, useProducts };
-
