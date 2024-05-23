@@ -9,7 +9,6 @@ function ProductsList({ searchTerm }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
-  console.log(products)
   useEffect(() => {
     let filtered = category
       ? products.filter((product) => product.category?.toString() === category)

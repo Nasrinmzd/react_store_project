@@ -2,7 +2,12 @@ import ShoppingCartItem from "../components/ShoppingCartItem";
 import { useCart } from "../context/CartContext";
 
 function ShoppingCartPage() {
-  const {cart} = useCart()
+  const { cart } = useCart();
+
+  const totalPrice = cart.reduce(
+    (acc, product) => acc + product.price * (product.quantity || 1),
+    0
+  );
 
   return (
     <section className="min-h-screen bg-gray-700 py-12 sm:py-16 lg:py-20">
@@ -11,22 +16,20 @@ function ShoppingCartPage() {
           <h1 className="text-3xl font-semibold text-white">Your Cart</h1>
         </div>
 
-        <div className="mx-auto mt-6 max-w-2xl md:mt-12">
+        <div className="mx-auto mt-6 max-w-[800px] md:mt-12">
           <div className="bg-white shadow rounded-lg">
             <div className="px-4 py-6 sm:px-8 sm:py-10">
               <div className="flow-root">
                 <ul className="-my-8">
-                  {cart.map((product) =>{
+                  {cart.map((product) => (
                     <ShoppingCartItem key={product.id} product={product} />
-                  })}
+                  ))}
                 </ul>
               </div>
 
               <div className="mt-6 border-t flex items-center justify-between">
                 <p className="text-xl font-medium text-gray-900">Total</p>
-                <p className="text-2xl font-semibold text-gray-900">
-                  408.00
-                </p>
+                <p className="text-2xl font-semibold text-gray-900">${totalPrice.toFixed(2)}</p>
               </div>
 
               <div className="mt-6 text-center">
@@ -44,6 +47,5 @@ function ShoppingCartPage() {
     </section>
   );
 }
-
 
 export default ShoppingCartPage;

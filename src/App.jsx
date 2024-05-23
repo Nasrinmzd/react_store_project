@@ -16,8 +16,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <ProductProvider>
-      <CartProvider>
+    <CartProvider>
+      <ProductProvider>
         <BrowserRouter>
           <Routes>
             <Route
@@ -34,13 +34,13 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/shopping" element={<ShoppingCart />} />
             </Route>
             <Route path="/login" element={<LoginPage replace />} />
-            <Route path="/shopping" element={<ShoppingCart />} />
           </Routes>
         </BrowserRouter>
-      </CartProvider>
-    </ProductProvider>
+      </ProductProvider>
+    </CartProvider>
   );
 }
 

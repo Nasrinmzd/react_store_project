@@ -11,8 +11,9 @@ function ProductDetail() {
   const product = products.find((product) => product.id === parseInt(id));
 
   const handleAddToCart = () => {
-    addToCart(products);
+    addToCart(product);
   };
+
 
   return (
     <div className="font-[sans-serif] bg-gray-700">

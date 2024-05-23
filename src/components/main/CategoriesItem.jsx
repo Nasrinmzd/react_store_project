@@ -11,7 +11,7 @@ function CategoriesItem({ category }) {
 
   return (
     <li
-      className="p-2 capitalize flex items-center justify-between border-b cursor-pointer hover:bg-indigo-100"
+      className="p-2 capitalize flex items-center justify-between border-b last:border-b-0 cursor-pointer hover:bg-indigo-100"
       onClick={handleClick}
     >
       <span className="mr-2">{category}</span>
