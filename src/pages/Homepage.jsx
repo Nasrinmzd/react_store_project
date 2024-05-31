@@ -1,5 +1,10 @@
+import SliderProducts from "../components/SliderProducts";
+import { useProducts } from "../context/ProductContext";
+import CategoryHeader from "../components/CategoryHeader";
 
 function Homepage() {
+  const { products } = useProducts();
+
   return (
     <div>
       <header className="w-full text-white py-2 px-6 bg-[url('../public/images/bg_image.jpg')] bg-center bg-cover h-[42rem]">
@@ -9,10 +14,22 @@ function Homepage() {
           Welcome to Our Store!
         </h1>
       </header>
-      
+      <main>
+        <div>
+          <CategoryHeader category="Beauty" />
+          <SliderProducts products={products} category="groceries" />
+        </div>
+        <div>
+          <CategoryHeader category="Groceries" />
+          <SliderProducts products={products} category="beauty" />
+        </div>
+        <div>
+          <CategoryHeader category="Furniture" />
+          <SliderProducts products={products} category="furniture" />
+        </div>
+      </main>
     </div>
   );
 }
 
 export default Homepage;
-

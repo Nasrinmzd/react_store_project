@@ -14,12 +14,6 @@ function PageNav({ searchTerm, setSearchTerm }) {
   const [showCartPopover, setShowCartPopover] = useState(false);
 
 
-  // const getTotalItems = () => {
-  //   return cart.reduce((total, item) => total + (item.quantity || 0), 0);
-  // };
-
-  // const totalItems = getTotalItems();
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };

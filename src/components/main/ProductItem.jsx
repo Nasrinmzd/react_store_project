@@ -2,7 +2,7 @@ import { Heart, Star } from "iconsax-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function ProductItem({ product }) {
+function ProductItem({ product, size= "default" }) {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = (e) => {
@@ -19,14 +19,37 @@ function ProductItem({ product }) {
     }
   }, [product.id]);
 
+  const getCardSize = () => {
+    switch (size) {
+      case "small":
+        return "w-[100px] lg:w-[100px]";
+      case "large":
+        return "w-[320px] lg:w-[360px]";
+      default:
+        return "w-[260px] lg:w-[300px]";
+    }
+  };
+
+  const getImageSize = () => {
+    switch (size) {
+      case "small":
+        return "w-[300px] h-[150px]";
+      case "large":
+        return "w-[320px] h-[250px]";
+      default:
+        return "w-[320px] h-[250px]";
+    }
+  };
+
+
   return (
-    <Link to={`/products/${product.id}`} className="w-[260px] lg:w-[300px]">
+    <Link to={`/products/${product.id}`} className={`${getCardSize()}`}>
       <div
         className="
      bg-white border border-gray-200 rounded-lg shadow h-full"
       >
         <img
-          className="w-[320px] h-[250px] m-auto object-contain p-3"
+          className={`${getImageSize()} m-auto object-contain p-3`}
           src={product.images[0]}
           alt={product.title}
         />

@@ -24,7 +24,6 @@ function CartProvider({ children }) {
       setCart(parsedCart);
       setTotalItems(parsedCart.reduce((total, item) => total + (item.quantity || 0), 0));
     }
-    console.log(savedCart);
   }, []);
 
 

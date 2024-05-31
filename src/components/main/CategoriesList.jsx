@@ -25,6 +25,7 @@ function CategoriesList() {
   const categoryRef = useOutsideClick(handleClose)
 
   if (isLoading) return <Loader />;
+
   return (
     <aside className="w-[15%]">
       {/* category System */}

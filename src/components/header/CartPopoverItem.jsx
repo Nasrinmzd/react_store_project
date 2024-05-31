@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function CartPopoverItem({product}) {
   const [quantity, setQuantity] = useState(1);
-  const { removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity } = useCart();
 
   const productPrice = product.price * quantity;
 
@@ -56,10 +56,9 @@ function CartPopoverItem({product}) {
         </div>
         <p className="ml-28">
           Price:
-          <span className="text-sm font-bold">
-            {" "}
+          <p className="text-sm font-bold">
             ${productPrice}
-          </span>
+          </p>
         </p>
       </div>
 
