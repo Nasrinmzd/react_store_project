@@ -2,18 +2,25 @@ import { Star } from "iconsax-react";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
+import { useState } from "react";
 
 function ProductDetail() {
   const { id } = useParams();
   const { products } = useProducts();
-  const { addToCart } = useCart();
+  const { addToCart, removeFromCart } = useCart();
+  const [isProductAdded, setIsProductAdded] = useState(false);
 
   const product = products.find((product) => product.id === parseInt(id));
 
   const handleAddToCart = () => {
     addToCart(product);
+    setIsProductAdded(true);
   };
 
+  const handleRemoveFromCart = () => {
+    removeFromCart(product.id);
+    setIsProductAdded(false);
+  };
 
   return (
     <div className="font-[sans-serif] bg-gray-700">
@@ -39,6 +46,7 @@ function ProductDetail() {
               <p className="text-gray-400 text-xl">
                 {product.discountPercentage}%
               </p>
+              <div></div>
             </div>
             <div className="flex items-center mt-4">
               <Star size="30" color="#facc15" variant="Bold" />
@@ -59,11 +67,15 @@ function ProductDetail() {
               </p>
             </div>
             <button
-              onClick={handleAddToCart}
+              onClick={isProductAdded ? handleRemoveFromCart : handleAddToCart}
               type="button"
-              className="min-w-full px-4 py-2.5 mt-8 border border-indigo-600 bg-transparent text-indigo-400 hover:text-white hover:bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600  text-sm font-bold rounded transition-all"
+              className={`min-w-full px-4 py-2.5 mt-8 border text-sm font-bold rounded transition-all ${
+                isProductAdded
+                  ? "bg-red-500 text-white border-red-500 hover:bg-red-600"
+                  : "border-indigo-600 bg-transparent text-indigo-400 hover:text-white hover:bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600"
+              }`}
             >
-              Add to cart
+              {isProductAdded ? "Remove from cart" : "Add to cart"}
             </button>
           </div>
         </div>

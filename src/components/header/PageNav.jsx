@@ -10,7 +10,7 @@ import CartPopover from "./CartPopover";
 
 function PageNav({ searchTerm, setSearchTerm }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cart, totalItems } = useCart();
+  const { totalItems } = useCart();
   const [showCartPopover, setShowCartPopover] = useState(false);
 
 

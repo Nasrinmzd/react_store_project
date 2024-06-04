@@ -10,19 +10,25 @@ function CategoriesList() {
   const { categories, isLoading } = useProducts();
   const navigate = useNavigate();
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const toggleCategory = () => {
     setIsCategoryOpen(!isCategoryOpen);
   };
   const handleAllProducts = () => {
     navigate("/products");
+    setSelectedCategory("all");
   };
 
   const handleClose = () => {
     setIsCategoryOpen(false);
   };
 
-  const categoryRef = useOutsideClick(handleClose)
+  const categoryRef = useOutsideClick(handleClose);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   if (isLoading) return <Loader />;
 
@@ -30,7 +36,7 @@ function CategoriesList() {
     <aside className="w-[15%]">
       {/* category System */}
       <div
-      ref={categoryRef}
+        ref={categoryRef}
         onClick={handleClose}
         className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 z-50 ${
           isCategoryOpen
@@ -50,13 +56,20 @@ function CategoriesList() {
           </div>
           <ul className="flex flex-col gap-2">
             <span
-              className="mx-2 border-b cursor-pointer"
+              className={`border-b cursor-pointer p-2 ${
+                selectedCategory === "all" ? "bg-indigo-400" : ""
+              }`}
               onClick={handleAllProducts}
             >
               All Products
             </span>
             {categories.map((category, index) => (
-              <CategoriesItem category={category} key={index} />
+              <CategoriesItem
+                category={category}
+                key={index}
+                selectedCategory={selectedCategory}
+                onCategoryClick={handleCategoryClick}
+              />
             ))}
           </ul>
         </div>
@@ -81,10 +94,11 @@ function CategoriesList() {
 
       <div
         className={`fixed inset-0  opacity-50 transition-opacity duration-300 md:hidden ${
-          isCategoryOpen ? "bg-black opacity-80" : "opacity-0 pointer-events-none"
+          isCategoryOpen
+            ? "bg-black opacity-80"
+            : "opacity-0 pointer-events-none"
         }`}
       ></div>
-
     </aside>
   );
 }

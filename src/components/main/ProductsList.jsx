@@ -12,7 +12,7 @@ function ProductsList({ searchTerm }) {
 
 
   useEffect(() => {
-    let filtered = category ? products.filter((product) => product.category === category) : products;
+    let filtered = category ? products.filter((product) => product.category === category.toLocaleLowerCase()) : products;
 
       if (searchTerm) {
         filtered = filtered.filter((product) =>
@@ -23,10 +23,7 @@ function ProductsList({ searchTerm }) {
       setFilteredProducts(filtered)
 
   }, [category, products, searchTerm]);
- 
-  console.log(filteredProducts);
-  const productsWithCategory = filteredProducts.filter((product) => product.category === category);
-  console.log(productsWithCategory);
+
 
 
   if (isLoading) return <Loader />

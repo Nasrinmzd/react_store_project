@@ -27,7 +27,7 @@ function SliderProducts({ products, category }) {
   );
 
   return (
-    <div className="mx-8 md:mx-20 my-4">
+    <div className="mx-8 md:mx-20 my-4 bg-indigo-50 rounded-xl">
       <Carousel
         responsive={responsive}
         partialVisbile={true}
@@ -36,7 +36,7 @@ function SliderProducts({ products, category }) {
         draggable={true}
       >
         {filteredProducts.map((product) => (
-          <div className="sm:w-[230px] sm:h-[350px] md:w-[280px] md:h-[300px]" key={product.id}>
+          <div className="sm:w-[230px] sm:h-[350px] md:w-[280px] md:h-[300px] mt-4 ml-6" key={product.id}>
             <ProductItem product={product} size="small" />
           </div>
         ))}
