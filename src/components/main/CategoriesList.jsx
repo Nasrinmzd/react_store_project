@@ -13,6 +13,7 @@ function CategoriesList() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const toggleCategory = () => {
+    console.log('oooo');
     setIsCategoryOpen(!isCategoryOpen);
   };
   const handleAllProducts = () => {
@@ -38,7 +39,7 @@ function CategoriesList() {
       <div
         ref={categoryRef}
         onClick={handleClose}
-        className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 z-50 ${
+        className={`fixed md:left-0 md:opacity-100 transition-all ease-in-out duration-300 z-40 ${
           isCategoryOpen
             ? "left-0 top-0 bg-indigo-200/90"
             : "sm:-left-full md:static opacity-0"
@@ -75,9 +76,9 @@ function CategoriesList() {
         </div>
         {/* filter button */}
       </div>
-      <div className="md:hidden flex justify-center ml-36">
+      <div className="md:hidden flex justify-center items-center min-w-96">
         <button
-          className="flex items-center justify-center gap-1 m-2 ml-20 border-b-4 p-2 rounded-xl"
+          className={`flex items-center justify-center gap-1 border-b-4 m-2 p-2 rounded-xl ${isCategoryOpen === true ? "z-0" : "z-50"}`}
           onClick={toggleCategory}
           type="button"
         >
