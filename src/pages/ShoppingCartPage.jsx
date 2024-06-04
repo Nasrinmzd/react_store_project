@@ -35,7 +35,7 @@ function ShoppingCartPage() {
               <div className="mt-6 text-center">
                 <button
                   type="button"
-                  className="min-w-80 px-4 py-4 mt-8 text-white text-xl font-bold rounded transition-all bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600"
+                  className="min-w-72 px-4 py-4 mt-8 text-white text-xl font-bold rounded transition-all bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600"
                 >
                   Checkout
                 </button>

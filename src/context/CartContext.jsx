@@ -31,7 +31,6 @@ function CartProvider({ children }) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
- 
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);

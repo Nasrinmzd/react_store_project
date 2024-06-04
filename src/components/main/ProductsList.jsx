@@ -25,6 +25,8 @@ function ProductsList({ searchTerm }) {
   }, [category, products, searchTerm]);
  
   console.log(filteredProducts);
+  const productsWithCategory = filteredProducts.filter((product) => product.category === category);
+  console.log(productsWithCategory);
 
 
   if (isLoading) return <Loader />

@@ -19,7 +19,6 @@ function ProductProvider({ children }) {
       setIsLoading(true);
       const res = await instance.get("/products");
       setProducts(res.products);
-      console.log(res.products);
 
     } catch (error) {
       toast.error("There was an error loading data...");
@@ -34,7 +33,6 @@ function ProductProvider({ children }) {
       const res = await instance.get("/products/categories");
       const newcategory = res.map((item)=> item.name)
       setCategories(newcategory);
-      console.log(res);
 
     } catch (error) {
       toast.error("There was an error loading data...");
