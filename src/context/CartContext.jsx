@@ -7,43 +7,59 @@ function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
 
+  
 
   const updateTotalItems = (shouldIncrement) => {
-    if (shouldIncrement) {
-      setTotalItems((prevTotalItems) => prevTotalItems + 1);
+    if (cart.length === 0) {
+      setTotalItems(1);
     } else {
-      setTotalItems((prevTotalItems) => (prevTotalItems > 0 ? prevTotalItems - 1 : 0));
+      if (shouldIncrement) {
+        setTotalItems((prevTotalItems) => prevTotalItems + 1);
+      } else {
+        setTotalItems((prevTotalItems) =>
+          prevTotalItems > 0 ? prevTotalItems - 1 : 0
+        );
+      }
     }
   };
-
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       const parsedCart = JSON.parse(savedCart);
       setCart(parsedCart);
-      setTotalItems(parsedCart.reduce((total, item) => total + (item.quantity || 0), 0));
+      setTotalItems(
+        parsedCart.reduce((total, item) => total + (item.quantity || 0), 0)
+      );
     }
   }, []);
 
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
+  const updateLocalStorage = (cart) => {
+    if (cart.length === 0) {
+      localStorage.removeItem("cart");
+    } else {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  };
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        )
+      const updatedCart = cart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       );
+
+      setCart(updatedCart);
+      updateLocalStorage(updatedCart);
       toast.error("The Product is Available in the Shopping Cart...");
     } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      const newCart = [...cart, { ...product, quantity: 1 }];
+
+      setCart(newCart);
+      updateLocalStorage(newCart);
       toast.success("The Product has been Added to the Shopping Cart...");
       updateTotalItems(true);
     }
@@ -58,7 +74,9 @@ function CartProvider({ children }) {
   };
 
   const removeFromCart = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+    updateLocalStorage(updatedCart);
     updateTotalItems(false);
   };
 
