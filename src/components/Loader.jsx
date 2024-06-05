@@ -2,7 +2,7 @@ import ReactLoading from "react-loading";
 
 function Loader() {
   return (
-    <div className="m-auto">
+    <div className="flex justify-center items-center mx-auto">
       <ReactLoading
         type={"spinningBubbles"}
         color={"#3b82f6"}

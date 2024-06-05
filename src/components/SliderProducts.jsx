@@ -1,8 +1,12 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductItem from "./main/ProductItem";
+import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 function SliderProducts({ products, category }) {
+  const [isLoading, setIsLoading] = useState(true);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -21,6 +25,15 @@ function SliderProducts({ products, category }) {
       items: 1,
     },
   };
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
+  if (isLoading) return <Loader />
 
   const filteredProducts = products.filter(
     (product) => product.category === category
