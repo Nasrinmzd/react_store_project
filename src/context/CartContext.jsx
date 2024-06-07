@@ -9,18 +9,9 @@ function CartProvider({ children }) {
 
   
 
-  const updateTotalItems = (shouldIncrement) => {
-    if (cart.length === 0) {
-      setTotalItems(1);
-    } else {
-      if (shouldIncrement) {
-        setTotalItems((prevTotalItems) => prevTotalItems + 1);
-      } else {
-        setTotalItems((prevTotalItems) =>
-          prevTotalItems > 0 ? prevTotalItems - 1 : 0
-        );
-      }
-    }
+  const updateTotalItems = (newQuantity) => {
+    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+    setTotalItems(totalQuantity + newQuantity);
   };
 
   useEffect(() => {
@@ -43,6 +34,7 @@ function CartProvider({ children }) {
   };
 
   const addToCart = (product, quantity = 1) => {
+    updateTotalItems(true);
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
@@ -53,6 +45,7 @@ function CartProvider({ children }) {
       );
 
       setCart(updatedCart);
+      updateTotalItems(quantity);
       updateLocalStorage(updatedCart);
       toast.error("The Product is Available in the Shopping Cart...");
     } else {
@@ -60,6 +53,7 @@ function CartProvider({ children }) {
 
       setCart(newCart);
       updateLocalStorage(newCart);
+      updateTotalItems(quantity); 
       toast.success("The Product has been Added to the Shopping Cart...");
       updateTotalItems(true);
     }
@@ -74,10 +68,11 @@ function CartProvider({ children }) {
   };
 
   const removeFromCart = (id) => {
+    const removedProduct = cart.find((item) => item.id === id);
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
     updateLocalStorage(updatedCart);
-    updateTotalItems(false);
+    updateTotalItems(-removedProduct.quantity); // کاهش تعداد حذف شده از totalItems
   };
 
   return (
