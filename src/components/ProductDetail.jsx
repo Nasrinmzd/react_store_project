@@ -2,18 +2,26 @@ import { Star } from "iconsax-react";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import QuantityController from "./QuantityController";
 
 function ProductDetail() {
   const { id } = useParams();
   const { products } = useProducts();
   const { addToCart, removeFromCart } = useCart();
   const [isProductAdded, setIsProductAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const product = products.find((product) => product.id === parseInt(id));
 
+  useEffect(() => {
+    if (product) {
+      setQuantity(product.quantity);
+    }
+  }, [product]);
+
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart(product, quantity);
     setIsProductAdded(true);
   };
 
@@ -39,14 +47,25 @@ function ProductDetail() {
             <h2 className="text-2xl font-extrabold mb-12 text-white">
               {product.title}
             </h2>
-            <div className="flex flex-wrap gap-4 mt-4">
-              <p className="text-indigo-500 text-4xl font-bold">
-                ${product.price}
-              </p>
-              <p className="text-gray-400 text-xl">
-                {product.discountPercentage}%
-              </p>
-              <div></div>
+            <div className="flex flex-wrap justify-between gap-4 mt-4">
+              <div>
+                <p className="text-indigo-500 text-4xl font-bold">
+                  ${product.price}
+                </p>
+                <p className="text-gray-400 text-xl">
+                  {product.discountPercentage}%
+                </p>
+              </div>
+              <div>
+                <QuantityController
+                  product={product}
+                  initialQuantity={quantity}
+                  onQuantityChange={(newQuantity) => {
+                    setQuantity(newQuantity);
+                    updateQuantity(product.id, newQuantity);
+                  }}
+                />
+              </div>
             </div>
             <div className="flex items-center mt-4">
               <Star size="30" color="#facc15" variant="Bold" />
@@ -59,7 +78,7 @@ function ProductDetail() {
                 {product.description}
               </span>
               <p className="mt-6 text-white capitalize">
-                Category:{" "}
+                Category:
                 <span className="text-gray-400">{product.category}</span>
               </p>
               <p className="text-white">
