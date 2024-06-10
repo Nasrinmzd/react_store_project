@@ -8,8 +8,8 @@ function LoginPage() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      username: "kminchelle",
-      password: "0lelplR",
+      username: "emilys",
+      password: "emilyspass",
     },
   });
 
