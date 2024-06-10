@@ -4,6 +4,7 @@ import { useProducts } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
 import { useEffect, useState } from "react";
 import QuantityController from "./QuantityController";
+import Loader from "./Loader";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -11,6 +12,7 @@ function ProductDetail() {
   const { addToCart, removeFromCart } = useCart();
   const [isProductAdded, setIsProductAdded] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const product = products.find((product) => product.id === parseInt(id));
 
@@ -20,15 +22,32 @@ function ProductDetail() {
     }
   }, [product]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+  }, []);
+
   const handleAddToCart = () => {
-    addToCart(product, quantity);
-    setIsProductAdded(true);
+    if (product) {
+      addToCart(product, quantity);
+      setIsProductAdded(true);
+    }
   };
 
   const handleRemoveFromCart = () => {
-    removeFromCart(product.id);
-    setIsProductAdded(false);
+    if (product) {
+      removeFromCart(product.id);
+      setIsProductAdded(false);
+    }
   };
+
+  if (isLoading) return <Loader />
+
+  if (!product) {
+    return null;
+  }
 
   return (
     <div className="font-[sans-serif] bg-gray-700">
