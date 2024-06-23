@@ -11,6 +11,7 @@ import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
 import ShoppingCart from "./pages/ShoppingCartPage";
 import { CartProvider } from "./context/CartContext";
+import ProtectedRoute from "./service/ProtectedRoute";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,23 +21,27 @@ function App() {
       <ProductProvider>
         <BrowserRouter>
           <Routes>
-            <Route
-              element={
-                <Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-              }
-            >
-              <Route path="/" element={<Homepage searchTerm={searchTerm} />} />
+            <Route path="/login" element={<LoginPage />} />
+            
+            <Route element={<ProtectedRoute />}>
               <Route
-                path="/products"
-                element={<AllProducts searchTerm={searchTerm} />}
-              />
-              <Route path="/products/:id" element={<ProductDetail />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<PageNotFound />} />
-              <Route path="/shopping" element={<ShoppingCart />} />
+                element={
+                  <Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                }
+              >
+                <Route path="/" element={<Homepage searchTerm={searchTerm} />} />
+                <Route
+                  path="/products"
+                  element={<AllProducts searchTerm={searchTerm} />}
+                />
+                <Route path="/products/:id" element={<ProductDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/shopping" element={<ShoppingCart />} />
+              </Route>
             </Route>
-            <Route path="/login" element={<LoginPage replace />} />
+            
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </ProductProvider>
