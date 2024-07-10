@@ -1,10 +1,12 @@
+import aboutus from "/images/aboutus.svg"
+
 function About() {
   return (
     <div className="w-[90%] mx-auto flex justify-center">
       <div className="sm:flex items-center mx-0 lg:mx-20">
         <div className="sm:w-1/2 p-10">
           <div className="image object-center text-center">
-            <img src="https://i.imgur.com/WbQnbas.png" />
+            <img src={aboutus} />
           </div>
         </div>
         <div className="sm:w-1/2 p-5">
