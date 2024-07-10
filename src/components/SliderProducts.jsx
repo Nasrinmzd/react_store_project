@@ -40,7 +40,7 @@ function SliderProducts({ products, category }) {
   );
 
   return (
-    <div className="mx-8 md:mx-20 my-4 bg-indigo-50 rounded-xl">
+    <div className="mx-8 md:mx-20 my-4 bg-indigo-50 rounded-xl pr-5 pb-5 lg:pb-0 lg:pr-0">
       <Carousel
         responsive={responsive}
         partialVisbile={true}
