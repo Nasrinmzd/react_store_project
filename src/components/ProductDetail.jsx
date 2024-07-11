@@ -18,7 +18,7 @@ function ProductDetail() {
 
   useEffect(() => {
     if (product) {
-      setQuantity(product.quantity);
+      setQuantity(1);
     }
   }, [product]);
 
